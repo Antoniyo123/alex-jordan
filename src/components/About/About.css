@@ -1,0 +1,139 @@
+.about {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 4rem 1.5rem; */
+    background-color: #070707;
+  }
+  
+  .about__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .about__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  @media (min-width: 768px) {
+    .about__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  /* Image Section */
+  .about__image-wrapper {
+    position: relative;
+  }
+  
+  .about__image-container {
+    aspect-ratio: 1;
+    overflow: hidden;
+    background-color: #f8f9fa;
+  }
+  
+  .about__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .about__experience-badge {
+    position: absolute;
+    bottom: -1rem;
+    right: -1rem;
+    background-color: #000;
+    color: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    text-align: center;
+  }
+  
+  .badge__number {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .badge__text {
+    font-size: 0.875rem;
+  }
+  
+  /* Content Section */
+  .about__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .about__header {
+    margin-bottom: 10px;
+  }
+  
+  .about__subtitle {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #f2f2f4;
+  }
+  
+  .about__title {
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.2;
+    color: #f1f3f6;
+    margin-top: 0.5rem;
+  }
+  
+  .about__description {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #fafbfd;
+  }
+  
+  /* Stats Section */
+  .about__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  
+  .stat__number {
+    font-size: 2rem;
+    font-weight: 300;
+    color: #edeff4;
+  }
+  
+  .stat__label {
+    font-size: 0.875rem;
+    color: #ebedf0;
+  }
+  
+  /* Skills Section */
+  .about__skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .skill-tag {
+    background-color: #f3f4f6;
+    color: #4b5563;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+  }
+  
+  /* Hover Effects */
+  .skill-tag:hover {
+    background-color: #e5e7eb;
+    transition: background-color 0.2s ease;
+  }
+  
+  .about__image-container:hover .about__image {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
