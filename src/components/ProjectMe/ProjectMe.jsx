@@ -169,12 +169,12 @@ const ProjectMe = () => {
           ))}
         </div>
         
-        <footer className="project-me__footer">
+        {/* <footer className="project-me__footer">
           <a href="#archive" className="project-me__link">
             View All Projects
             <span className="project-me__link-arrow">→</span>
           </a>
-        </footer>
+        </footer> */}
       </div>
 
       {selectedProject && (
