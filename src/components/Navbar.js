@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 import '../Styles/Navbar.css';
 
 
@@ -42,11 +44,12 @@ const Navbar = () => {
       <div className="navbar-container">
         <div className="logo">Alex J</div>
         <div className={`nav-menu ${isOpen ? 'active' : ''}`}>
-          <a href="#home" onClick={toggleMenu}>Home</a>
-          <a href="#work" onClick={toggleMenu}>Work</a>
-          <a href="#about" onClick={toggleMenu}>About</a>
-          <a href="#contact" onClick={toggleMenu}>Contact</a>
+          <Link to="/" onClick={toggleMenu}>Home</Link>
+          <Link to="/projects" onClick={toggleMenu}>Project</Link>
+          <Link to="/about" onClick={toggleMenu}>About Me</Link>
+          <Link to="/contact" onClick={toggleMenu}>Contact</Link>
         </div>
+
         <div className="hamburger" onClick={toggleMenu}>
           <div className={`bar ${isOpen ? 'change' : ''}`} ></div>
           <div className={`bar ${isOpen ? 'change' : ''}`}></div>

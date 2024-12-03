@@ -1,0 +1,151 @@
+.contactme-section {
+    border-top: 1px solid #f5f0f02d;
+    min-height: 100vh;
+    background-color: #0a0a0a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .contactme-content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+  }
+  
+  .contactme-text {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .contactme-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .contactme-subtitle {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #fdf9f9;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+  
+  .contactme-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #f7f6f6;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+  }
+  
+  .contactme-description {
+    font-size: 1.25rem;
+    color: #f7f3f3;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+  }
+  
+  .contactme-email {
+    font-size: 1.5rem;
+    color: #faf9f9;
+    text-decoration: none;
+    font-weight: 300;
+    display: block;
+    margin-bottom: 2rem;
+    transition: color 0.3s;
+  }
+  
+  .contactme-email:hover {
+    color: #666;
+  }
+  
+  .contactme-socials {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .contactme-social-link {
+    color: #f5f0f0;
+    text-decoration: none;
+    font-size: 1.125rem;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .contactme-social-link:hover {
+    color: #a0c8e7;
+  }
+  
+  .form-group {
+    width: 100%;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    color: #f7f6f6;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+  
+  .form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #a0c8e7;
+  }
+  
+  .submit-btn {
+    background-color: #a0c8e7;
+    color: #0a0a0a;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-btn:hover {
+    background-color: #8ab4d3;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .contactme-content {
+        padding-bottom: 60px;
+        padding-top: 170px;
+      flex-direction: column;
+      gap: 2rem;
+      text-align: center;
+    }
+  
+    .contactme-text {
+      text-align: center;
+    }
+  
+    .contactme-title {
+      font-size: 2.5rem;
+    }
+  
+    .contactme-description {
+      font-size: 1rem;
+    }
+  
+    .contactme-socials {
+      justify-content: center;
+    }
+  }

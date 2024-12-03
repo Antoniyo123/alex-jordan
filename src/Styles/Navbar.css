@@ -10,6 +10,7 @@
   }
   
   .navbar-container {
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,7 +35,7 @@
     background-color: #0a0a0a;
 
     padding: 20px;
-    gap: 20px;
+    gap: 35px;
     z-index: 1000;
     color: black;
   }
@@ -105,7 +106,8 @@
       top: 80px;
       left: 0;
       width: 100%;
-      background-color: white;
+      background-color: #0a0a0a;
+
       padding: 20px;
       gap: 20px;
     }
