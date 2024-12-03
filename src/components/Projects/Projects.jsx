@@ -1,42 +1,61 @@
 import React from 'react';
 import './Projects.css';
 
-const Projects = ({ projects }) => {
+const Projects = () => {
+  const projects = [
+    {
+      title: "Web Design Project",
+      year: "2023",
+      category: "Web Design",
+      description: "A concise description of the first project showcasing its key features and innovative approach.",
+      image: require('../../img/post_2.jpg')
+    },
+    {
+      title: "Branding Project",
+      year: "2022",
+      category: "Branding",
+      description: "Brief insight into the second project, highlighting its unique design and creative solution.",
+      image: require('../../img/post_1.jpg')
+    }
+  ];
+
   return (
-    <section className="featured-works">
-      <div className="container">
-        <div className="section-header">
+    <section className="projects">
+      <div className="projects__noise"></div>
+      <div className="projects__container">
+        <header className="projects__header">
           <h2>Featured Work</h2>
-          <a href="#" className="see-more">See More</a>
-        </div>
-        <div className="works-grid">
-          <div className="work-item landscape">
-            <div className="work-image">
-              <img src={require('../../img/post_2.jpg')} alt="Project 1"/>
-              <h3 className="project-title">Web Design Project</h3>
-            </div>
-            <div className="work-details">
-              <div className="work-meta">
-                <span>2023</span>
-                <span>Web Design</span>
+          <span className="projects__year">2022—2024</span>
+        </header>
+
+        <div className="projects__grid">
+          {projects.map((project, index) => (
+            <article className="project" key={index}>
+              <div className="project__image-wrapper">
+                <img src={project.image} alt={project.title} />
+                <div className="project__overlay">
+                  <span className="project__view">View Project</span>
+                </div>
               </div>
-              <p>A concise description of the first project showcasing its key features and innovative approach.</p>
-            </div>
-          </div>
-          <div className="work-item landscape">
-            <div className="work-image">
-              <img src={require('../../img/post_1.jpg')} alt="Project 2"/>
-              <h3 className="project-title">Branding Project</h3>
-            </div>
-            <div className="work-details">
-              <div className="work-meta">
-                <span>2022</span>
-                <span>Branding</span>
+              
+              <div className="project__content">
+                <div className="project__meta">
+                  <span>{project.year}</span>
+                  <span>{project.category}</span>
+                </div>
+                <h3 className="project__title">{project.title}</h3>
+                <p className="project__description">{project.description}</p>
               </div>
-              <p>Brief insight into the second project, highlighting its unique design and creative solution.</p>
-            </div>
-          </div>
+            </article>
+          ))}
         </div>
+        
+        <footer className="projects__footer">
+          <a href="#archive" className="projects__link">
+            View All Projects
+            <span className="projects__link-arrow">→</span>
+          </a>
+        </footer>
       </div>
     </section>
   );

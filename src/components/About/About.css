@@ -1,220 +1,157 @@
 .about {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     min-height: 100vh;
-    background-color: #fafafa;
-    padding: 2rem;
+    background-color: #0a0a0a;
+    padding: 6rem 2rem;
+    position: relative;
+    color: #fff;
+  }
+  
+  .about__noise {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    opacity: 0.3;
+    pointer-events: none;
   }
   
   .about__container {
-    max-width: 1000px;
-    width: 100%;
+    max-width: 1400px;
     margin: 0 auto;
-  }
-  
-  .about__content {
-    padding-top: 120px;
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 6rem;
   }
   
   .about__profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1.5rem;
+    position: sticky;
+    top: 6rem;
+    height: fit-content;
+  }
+  
+  .about__image-container {
+    position: relative;
+    margin-bottom: 2rem;
   }
   
   .about__image-wrapper {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+    position: relative;
+    aspect-ratio: 3/4;
     overflow: hidden;
-    border: 3px solid #fff;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   }
   
-  .about__image {
+  .about__image-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
   }
   
-  .about__title {
-    font-size: 2.5rem;
-    font-weight: 400;
-    color: #2d2d2d;
-    margin: 0;
-  }
-  
-  .about__subtitle {
-    font-size: 1.1rem;
-    color: #666;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+  .about__image-wrapper:hover img {
+    filter: grayscale(0%);
   }
   
   .about__location {
-    display: flex;
-    gap: 1rem;
+    font-size: 0.875rem;
     color: #666;
-    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
   }
   
   .about__availability {
-    color: #4CAF50;
-    font-weight: 500;
+    color: #00ff00;
+    opacity: 0.5;
   }
   
   .about__bio {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-    color: #4a4a4a;
-    line-height: 1.8;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: #999;
+    margin-bottom: 6rem;
+    font-family: "Playfair Display", serif;
   }
   
   .about__metrics {
-    display: flex;
-    justify-content: center;
-    gap: 4rem;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 6rem;
   }
   
   .metric {
-    text-align: center;
-    flex: 1;
-    min-width: 200px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+  }
+  
+  .metric__header {
+    margin-bottom: 1rem;
   }
   
   .metric__number {
     display: block;
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 300;
-    color: #2d2d2d;
+    color: #fff;
     margin-bottom: 0.5rem;
   }
   
   .metric__label {
-    display: block;
+    font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: #666;
-    margin-bottom: 0.5rem;
   }
   
   .metric__description {
-    display: block;
-    font-size: 0.9rem;
-    color: #888;
-  }
-  
-  .section-title {
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: #2d2d2d;
-    margin-bottom: 2rem;
-  }
-  
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-  }
-  
-  .service-card {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
-  }
-  
-  .service-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .service-card__title {
-    font-size: 1.2rem;
-    color: #2d2d2d;
-    margin-bottom: 1rem;
-  }
-  
-  .service-card__description {
-    color: #666;
+    color: #999;
+    font-size: 0.875rem;
     line-height: 1.6;
   }
   
-  .skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
+  .section__title {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #666;
+    margin-bottom: 2rem;
   }
   
-  .skill-tag {
-    background-color: #fff;
-    border: 1px solid #eee;
-    padding: 0.75rem 1.25rem;
-    border-radius: 25px;
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    transition: all 0.3s ease;
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
   }
   
-  .skill-tag:hover {
-    background-color: #f8f8f8;
-    transform: translateY(-2px);
+  .service {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
   }
   
-  .skill-tag__name {
-    color: #2d2d2d;
-    font-weight: 500;
+  .service__title {
+    font-size: 1.25rem;
+    color: #fff;
+    margin-bottom: 1rem;
   }
   
-  .skill-tag__level {
-    color: #888;
-    font-size: 0.8rem;
+  .service__description {
+    color: #999;
+    font-size: 0.875rem;
+    line-height: 1.6;
   }
   
-  @media (max-width: 768px) {
-    .about__content {
-      gap: 3rem;
+  @media (max-width: 1024px) {
+    .about__container {
+      grid-template-columns: 1fr;
+      gap: 4rem;
     }
   
+    .about__profile {
+      position: static;
+    }
+  
+    .services__grid,
     .about__metrics {
-      gap: 2rem;
-    }
-  
-    .service-card {
-      padding: 1.5rem;
-    }
-  
-    .about__title {
-      font-size: 2rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .about {
-      padding: 1rem;
-    }
-  
-    .metric {
-      min-width: 150px;
-    }
-  
-    .skills-grid {
-      gap: 0.75rem;
-    }
-  
-    .skill-tag {
-      padding: 0.5rem 1rem;
+      grid-template-columns: 1fr;
     }
   }

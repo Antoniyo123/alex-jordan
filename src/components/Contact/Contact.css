@@ -1,62 +1,72 @@
 .contact-section {
-    padding: 3rem 1.5rem;
-    text-align: center;
+    min-height: 70vh;
     background-color: #0a0a0a;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 5rem 1rem; */
   }
   
   .contact-content {
-    max-width: 700px;
-    margin: 0 auto;
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
   }
   
   .section-subtitle {
-    font-size: 0.9rem;
-    color: #f6f7f8;
-    letter-spacing: 0.1em;
+    font-size: 0.875rem;
     text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #fdf9f9;
+    margin-bottom: 1.5rem;
+    display: block;
   }
   
-  h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #f2f3f5;
-    margin-top: 0.5rem;
+  .section-title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #f7f6f6;
+    margin-bottom: 2rem;
+    line-height: 1.2;
   }
   
   .contact-description {
-    color: #6c757d;
-    margin: 1.5rem 0;
+    font-size: 1.25rem;
+    color: #f7f3f3;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
   }
   
   .email-link {
-    display: inline-block;
-    font-size: 1rem;
-    color: #e7e9ec;
+    font-size: 2rem;
+    color: #faf9f9;
     text-decoration: none;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 0.2rem;
-    margin-bottom: 1.5rem;
+    font-weight: 300;
+    display: block;
+    margin-bottom: 4rem;
+    transition: color 0.3s;
   }
   
   .email-link:hover {
-    color: #0056b3;
-    border-color: #0056b3;
+    color: #666;
   }
   
   .social-links {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
-    margin-top: 2rem;
+    gap: 2rem;
   }
   
   .social-link {
-    font-size: 1.25rem;
-    color: #6c757d;
+    color: #f5f0f0;
     text-decoration: none;
+    font-size: 1.125rem;
+    font-weight: 500;
+    transition: color 0.3s;
   }
   
   .social-link:hover {
-    color: #007bff;
+    color: #a0c8e7;
   }
-  

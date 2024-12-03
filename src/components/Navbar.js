@@ -48,7 +48,7 @@ const Navbar = () => {
           <a href="#contact" onClick={toggleMenu}>Contact</a>
         </div>
         <div className="hamburger" onClick={toggleMenu}>
-          <div className={`bar ${isOpen ? 'change' : ''}`}></div>
+          <div className={`bar ${isOpen ? 'change' : ''}`} ></div>
           <div className={`bar ${isOpen ? 'change' : ''}`}></div>
         </div>
       </div>

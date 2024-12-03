@@ -6,7 +6,7 @@ const Contact = () => {
     <section id="contact" className="contact-section">
       <div className="contact-content">
         <span className="section-subtitle">Get In Touch</span>
-        <h2>Let's Work Together</h2>
+        <h2 className="section-title">Let's Work Together</h2>
         <p className="contact-description">
           I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
         </p>
