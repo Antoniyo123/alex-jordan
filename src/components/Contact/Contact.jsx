@@ -20,6 +20,8 @@ const Contact = () => {
             </a>
           ))}
         </div>
+      <p className="copyright">&copy; {new Date().getFullYear()} Alex Jordan. All rights reserved.</p>
+
       </div>
     </section>
   );

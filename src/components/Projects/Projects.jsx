@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';  // Impor Link dari react-router-dom
+
 import './Projects.css';
 
 const Projects = () => {
@@ -51,11 +53,13 @@ const Projects = () => {
         </div>
         
         <footer className="projects__footer">
-          <a href="#archive" className="projects__link">
+          {/* Gunakan Link untuk navigasi */}
+          <Link to="/projects" className="projects__link">
             View All Projects
             <span className="projects__link-arrow">→</span>
-          </a>
+          </Link>
         </footer>
+
       </div>
     </section>
   );

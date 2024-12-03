@@ -21,8 +21,11 @@
   }
   
   .logo {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: "Playfair Display", serif;
     color: #fff;
-    font-size: 30px;
+    font-size: 35px;
     font-weight: 350;
   }
   .nav-menu {
@@ -56,7 +59,7 @@
     display: flex;
     cursor: pointer;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
     z-index: 1100;
   }
   

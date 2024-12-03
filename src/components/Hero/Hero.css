@@ -52,7 +52,7 @@
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap: 4rem;
-    margin-bottom: 8rem;
+    margin-bottom: 7rem;
   }
   
   .hero__title {

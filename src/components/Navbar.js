@@ -42,7 +42,10 @@ const Navbar = () => {
       }}
     >
       <div className="navbar-container">
-        <div className="logo">Alex J</div>
+      <Link to="/" className="logo">
+    Alex J
+  </Link>
+
         <div className={`nav-menu ${isOpen ? 'active' : ''}`}>
           <Link to="/" onClick={toggleMenu}>Home</Link>
           <Link to="/projects" onClick={toggleMenu}>Project</Link>

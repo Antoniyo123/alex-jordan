@@ -43,7 +43,8 @@ const ContactMe = () => {
   };
 
   return (
-    <section id="contact" className="contactme-section">
+    <div className='contact__me__wrapper'>
+    <div id="contact" className="contactme-section">
       <div className="contactme-content">
         <div className="contactme-text">
           <span className="contactme-subtitle">Get In Touch</span>
@@ -102,7 +103,18 @@ const ContactMe = () => {
           <button type="submit" className="submit-btn">Send Message</button>
         </form>
       </div>
-    </section>
+      
+    </div>
+    <div className='copyright__contact'>
+    <p className="copyright__contact__me">
+    &copy; {new Date().getFullYear()} Alex Jordan. All rights reserved.
+  </p>
+    </div>
+
+
+
+    </div>
+
   );
 };
 

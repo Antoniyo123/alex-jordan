@@ -53,6 +53,12 @@
   .email-link:hover {
     color: #666;
   }
+  .copyright {
+    margin-top: 2rem;
+    font-size: 0.875rem;
+    color: #cccccc;
+    text-align: center;
+  }
   
   .social-links {
     display: flex;
