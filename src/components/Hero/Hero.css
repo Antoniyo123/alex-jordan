@@ -136,7 +136,12 @@
   .hero__link:hover::after {
     width: 100%;
   }
-  
+  @media (max-width: 768px){
+    .hero__content {
+
+      padding-top: 80px;
+    }
+  }
   @media (max-width: 1024px) {
     .hero {
       padding: 2rem;
