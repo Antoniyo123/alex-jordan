@@ -31,17 +31,20 @@
     top: 80px;
     left: 0;
     width: 100%;
-    background-color: white;
+    background-color: #0a0a0a;
+
     padding: 20px;
     gap: 20px;
     z-index: 1000;
     color: black;
   }
   .nav-menu a{
-    color: black;
+    color: rgb(249, 244, 244);
     text-decoration: none;
     line-height: 1.4;
-    font-size: 20px;
+    font-size: 26px;
+    font-family: "Playfair Display", serif;
+
   }
   
   .nav-menu.active {
