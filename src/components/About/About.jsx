@@ -57,8 +57,8 @@ const About = () => {
                 className="about__image"
               />
             </div>
-            <h1 className="about__title">Alex Jordan</h1>
-            <p className="about__subtitle">Designer & Developer</p>
+            {/* <h1 className="about__title">Alex Jordan</h1>
+            <p className="about__subtitle">Designer & Developer</p> */}
             <div className="about__location">
               <span>Based in Jakarta, Indonesia</span>
               <span className="about__availability">Available for freelance</span>

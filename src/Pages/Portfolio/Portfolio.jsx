@@ -29,7 +29,7 @@ const Portfolio = () => {
 
   return (
     <div className="portfolio-container">
-      {/* <Hero /> */}
+      <Hero />
       <About />
       <Projects projects={projects} />
       <Contact />
