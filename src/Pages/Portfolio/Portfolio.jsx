@@ -19,17 +19,17 @@ const Portfolio = () => {
       tags: ["React Native", "Firebase"],
       image: require('../../img/post_2.jpg')
     },
-    {
-      title: "Portfolio Website",
-      description: "Personal portfolio with minimalist design",
-      tags: ["React", "CSS3", "JavaScript"],
-      image: require('../../img/post_2.jpg')
-    }
+    // {
+    //   title: "Portfolio Website",
+    //   description: "Personal portfolio with minimalist design",
+    //   tags: ["React", "CSS3", "JavaScript"],
+    //   image: require('../../img/post_2.jpg')
+    // }
   ];
 
   return (
     <div className="portfolio-container">
-      <Hero />
+      {/* <Hero /> */}
       <About />
       <Projects projects={projects} />
       <Contact />

@@ -1,241 +1,261 @@
-/* Hero.css */
 .hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #fafafa;
-    position: relative;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+.hero__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+    rgba(0,0,0,0.03) 0%, 
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero__grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(0deg, transparent 24%, rgba(0, 0, 0, 0.05) 25%, rgba(0, 0, 0, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.05) 75%, rgba(0, 0, 0, 0.05) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(0, 0, 0, 0.05) 25%, rgba(0, 0, 0, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.05) 75%, rgba(0, 0, 0, 0.05) 76%, transparent 77%, transparent);
+  background-size: 50px 50px;
+  opacity: 0.3;
+}
+
+.hero__geometric-shape {
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  width: 200px;
+  height: 200px;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transform: rotate(45deg);
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.hero__container {
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+}  
+  .hero__content.animate {
+    opacity: 1;
+    transform: translateY(0);
   }
   
-  .hero__container {
-    text-align: center;
-    padding: 0 24px;
-    max-width: 800px;
-  }
-  
-  .hero__greeting {
-    font-size: 20px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #666;
-    margin-bottom: 20px;
-    display: block;
+  .hero__name-wrapper {
+    overflow: hidden;
   }
   
   .hero__name {
-    font-size: 80px;
+    font-size: 6rem;
     font-weight: 300;
     color: #333;
-    /* margin: 0; */
+    margin: 0;
     line-height: 1.2;
-  }
-  
-  .hero__divider {
-    width: 40px;
-    height: 2px;
-    background-color: #333;
-    margin: 30px auto;
-  }
-  
-  .hero__role {
-    font-size: 20px;
-    color: #666;
-    font-weight: 300;
-    margin-bottom: 40px;
-  }
-  
-  .hero__buttons {
     display: flex;
-    gap: 20px;
     justify-content: center;
+    gap: 0.2rem;
   }
   
-  .hero__button {
-    padding: 12px 32px;
-    font-size: 14px;
-    letter-spacing: 1px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  .hero__name span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   
-  .hero__button--primary {
-    background-color: #333;
-    color: white;
+  .hero__content.animate .hero__name span {
+    opacity: 1;
+    transform: translateY(0);
   }
   
-  .hero__button--primary:hover {
-    background-color: #222;
-    transform: translateY(-2px);
-  }
-  
-  .hero__button--secondary {
-    background-color: transparent;
-    color: #333;
-    border: 1px solid #333;
-  }
-  
-  .hero__button--secondary:hover {
-    background-color: rgba(51, 51, 51, 0.05);
-    transform: translateY(-2px);
-  }
-  
-  .hero__scroll {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .hero__scroll-line {
-    width: 2px;
-    height: 60px;
-    background-color: #333;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .hero__scroll-line::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fafafa;
-    animation: scrollAnimation 2s ease-in-out infinite;
-  }
-  
-  @keyframes scrollAnimation {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(100%); }
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .hero__name {
-      font-size: 48px;
-    }
-    
-    .hero__role {
-      font-size: 18px;
-    }
-    
-    .hero__buttons {
-      flex-direction: column;
-    }
-    
-    .hero__button {
-      width: 100%;
-    }
-  }
-  .hero {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -100px;
-    left: -100px;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(51, 51, 51, 0.1), transparent);
-    border-radius: 50%;
-    animation: moveDecor 8s infinite alternate;
-  }
-  
-  @keyframes moveDecor {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(50px, 50px); }
-  }
-  
-  /* Adding subtle animations */
-.hero__greeting {
-    animation: fadeInDown 1.2s ease-in-out;
-  }
-  
-  .hero__name {
-    animation: fadeIn 1.5s ease-in-out;
-  }
-  
-  .hero__divider {
-    animation: slideIn 1.8s ease-in-out;
-  }
+  .hero__content.animate .hero__name span:nth-child(1) { transition-delay: 0.1s; }
+  .hero__content.animate .hero__name span:nth-child(2) { transition-delay: 0.15s; }
+  .hero__content.animate .hero__name span:nth-child(3) { transition-delay: 0.2s; }
+  .hero__content.animate .hero__name span:nth-child(4) { transition-delay: 0.25s; }
+  .hero__content.animate .hero__name span:nth-child(5) { transition-delay: 0.3s; }
+  .hero__content.animate .hero__name span:nth-child(6) { transition-delay: 0.35s; }
+  .hero__content.animate .hero__name span:nth-child(7) { transition-delay: 0.4s; }
+  .hero__content.animate .hero__name span:nth-child(8) { transition-delay: 0.45s; }
+  .hero__content.animate .hero__name span:nth-child(9) { transition-delay: 0.5s; }
+  .hero__content.animate .hero__name span:nth-child(10) { transition-delay: 0.55s; }
+  .hero__content.animate .hero__name span:nth-child(11) { transition-delay: 0.6s; }
   
   .hero__role {
-    animation: fadeInUp 2s ease-in-out;
-  }
-  
-  .hero__button {
+    font-size: 1.8rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    /* margin: 0; */
     opacity: 0;
-    animation: fadeInButtons 2.4s ease-in-out forwards;
+    transform: translateY(20px);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   
-  .hero__scroll-line {
-    animation: scrollLinePulse 2s infinite alternate;
+  .hero__content.animate .hero__role {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.7s;
   }
   
-  /* Keyframes */
-  @keyframes fadeInDown {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .hero__actions {
+    justify-content: center;
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  .hero__content.animate .hero__actions {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.8s;
   }
   
-  @keyframes slideIn {
-    from {
-      width: 0;
-    }
-    to {
-      width: 40px;
-    }
+  .hero__link {
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    position: relative;
+    padding-bottom: 0.5rem;
+    transition: color 0.3s ease;
+    overflow: hidden;
   }
   
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .hero__link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    width: 100%;
+    height: 1px;
+    background-color: #333;
+    transition: all 0.4s ease;
   }
   
-  @keyframes fadeInButtons {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .hero__link:hover::before {
+    left: 0;
   }
   
-  @keyframes scrollLinePulse {
-    0% {
-      transform: scaleY(1);
-    }
-    100% {
-      transform: scaleY(1.5);
-    }
+  .hero__link:hover {
+    color: #666;
   }
   
+  @media (max-width: 600px) {
+    .hero__name {
+      font-size: 2.5rem;
+      gap: 0.1rem;
+    }
+  
+    .hero__actions {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+  .hero__description {
+    max-width: 500px;
+    margin: 1rem auto;
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .hero__content.animate .hero__description {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.75s;
+  }
+  
+  .hero__skills {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .hero__skills span {
+    background-color: rgba(0,0,0,0.05);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: #666;
+  }
+  
+  .hero__content.animate .hero__skills {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.9s;
+  }
+  
+  .hero__contact {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+  
+  .hero__contact-btn {
+    background: black;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    color: #f9f7f7;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .hero__content.animate .hero__contact-btn {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1s;
+  }
+  
+  .hero__contact-btn:hover {
+    background-color: rgba(0,0,0,0.05);
+  }
+  
+  @media (max-width: 600px) {
+    .hero__skills {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .hero__description {
+      max-width: 90%;
+      margin: 1rem auto;
+      font-size: 0.8rem;
+    }
+  }
