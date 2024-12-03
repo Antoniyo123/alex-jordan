@@ -364,6 +364,9 @@
   }
   
   @media (max-width: 768px) {
+    .project-modal__close{
+      background-color: #1c1c1c;
+    }
     .project-modal__container {
       padding: 1rem;
     }
