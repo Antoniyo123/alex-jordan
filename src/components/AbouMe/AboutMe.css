@@ -82,7 +82,7 @@
 }
 
 .metric {
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.743);
     padding: 2rem;
 }
 
@@ -102,20 +102,20 @@
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #666;
+    color: #ffffffba;
 }
 
 .metric__description {
-    color: #999;
+    color: #ffffffba;
     font-size: 0.875rem;
     line-height: 1.6;
 }
 
 .section__title {
-    font-size: 1rem;
+    font-size: 1.7rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #666;
+    color: #f3efef;
     margin-bottom: 2rem;
 }
 
@@ -126,7 +126,7 @@
 }
 
 .service {
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.72);
     padding: 2rem;
 }
 

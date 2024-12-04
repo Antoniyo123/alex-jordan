@@ -67,7 +67,7 @@
   .about__bio {
     font-size: 1.5rem;
     line-height: 1.5;
-    color: #999;
+    color: #f1eeee;
     margin-bottom: 6rem;
     font-family: "Playfair Display", serif;
   }
@@ -104,16 +104,16 @@
   }
   
   .metric__description {
-    color: #999;
+    color: #ffffffba;
     font-size: 0.875rem;
     line-height: 1.6;
   }
   
   .section__title {
-    font-size: 1rem;
+    font-size: 1.7rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #666;
+    color: #fbf5f5;
     margin-bottom: 2rem;
   }
   
