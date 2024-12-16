@@ -6,18 +6,18 @@ import './Projects.css';
 const Projects = () => {
   const projects = [
     {
-      title: "Web Design Project",
-      year: "2023",
-      category: "Web Design",
+      title: "Bali Social Integrated Website",
+      year: "2022",
+      category: "Web Development",
       description: "A concise description of the first project showcasing its key features and innovative approach.",
-      image: require('../../img/post_2.jpg')
+      image: require('../../img/project1.png')
     },
     {
-      title: "Branding Project",
+      title: "Carbon Free Viaje Website",
       year: "2022",
-      category: "Branding",
+      category: "Web Development",
       description: "Brief insight into the second project, highlighting its unique design and creative solution.",
-      image: require('../../img/post_1.jpg')
+      image: require('../../img/project2.png')
     }
   ];
 

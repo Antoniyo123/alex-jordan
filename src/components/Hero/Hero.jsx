@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Hero.css';
+import { Link } from "react-router-dom";
+
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -39,10 +41,12 @@ const Hero = () => {
           </div>
           
           <div className="hero__actions">
-            <a href="#works" className="hero__link">Selected Works</a>
-            <a href="#about" className="hero__link">About</a>
-            <a href="mailto:your.email@example.com" className="hero__link">Contact</a>
-          </div>
+  <a href="/Riswanton Ramudin-resume.pdf" download className="hero__link">Resume</a>
+  <Link to="/about" className="hero__link">About</Link>
+
+  <a href="mailto:riswantonr2015@gmail.com" className="hero__link">Contact</a>
+</div>
+
         </div>
       </div>
     </section>

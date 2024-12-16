@@ -98,30 +98,39 @@ const ProjectMe = () => {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
-      year: "2023",
+      title: "Bali Social Integrated Website",
+      year: "2022",
       category: "Web Development",
       description: "A full-stack e-commerce platform with advanced features like user authentication, product management, and secure payment integration. The project demonstrates scalable web application development.",
       technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe API"],
-      image: require('../../img/post_1.jpg'),
+      image: require('../../img/project1.png'),
       githubLink: "https://github.com/yourusername/ecommerce-project"
     },
     {
-      title: "Task Management Application",
+      title: "Carbon Free Viaje Website",
       year: "2022",
       category: "Web Development",
       description: "A comprehensive task management web app with real-time collaboration features, designed to improve team productivity and project tracking.",
       technologies: ["React", "Firebase", "Redux", "TypeScript"],
-      image: require('../../img/post_2.jpg'),
+      image: require('../../img/project2.png'),
       githubLink: "https://github.com/yourusername/task-management-app"
     },
     {
-      title: "Personal Portfolio Website",
-      year: "2024",
+      title: "BSI Web Concert",
+      year: "2022",
       category: "Web Development",
       description: "A responsive and interactive personal portfolio website showcasing web development skills and previous projects with modern design principles.",
       technologies: ["React", "CSS3", "Responsive Design", "Framer Motion"],
-      image: require('../../img/post_3.jpg'),
+      image: require('../../img/project3.png'),
+      githubLink: "https://github.com/yourusername/personal-portfolio"
+    },
+    {
+      title: "BSI & Viaje Apps",
+      year: "2022",
+      category: "Web Development",
+      description: "A responsive and interactive personal portfolio website showcasing web development skills and previous projects with modern design principles.",
+      technologies: ["React", "CSS3", "Responsive Design", "Framer Motion"],
+      image: require('../../img/project4.png'),
       githubLink: "https://github.com/yourusername/personal-portfolio"
     }
   ];

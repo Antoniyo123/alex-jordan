@@ -266,22 +266,3 @@
   }
 }
 
-.fade-in-headline {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.fade-in-headline.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.fade-in-headline .cursor {
-  animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
