@@ -26,6 +26,9 @@ const Portfolio = () => {
   };
 
   useEffect(() => {
+    // Check if mobile device
+    const isMobile = window.innerWidth <= 768;
+    
     const calculateProgress = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
@@ -47,31 +50,61 @@ const Portfolio = () => {
           const scrollPercent = Math.min(1, scrollY / (windowHeight * 1.2));
           const easedScroll = easeOutQuart(scrollPercent);
           
+          // Lighter effects for mobile
+          const scaleAmount = isMobile ? 0.15 : 0.4;
+          const translateAmount = isMobile ? 100 : 250;
+          const blurAmount = isMobile ? 5 : 15;
+          const opacityAmount = isMobile ? 0.5 : 0.85;
+          const brightnessAmount = isMobile ? 0.3 : 0.7;
+          
           targetValues.current[index] = {
-            scale: 1 - (easedScroll * 0.4),
-            translateY: easedScroll * 250,
-            blur: easedScroll * 15,
-            opacity: Math.max(0.2, 1 - (easedScroll * 0.85)),
-            brightness: Math.max(0.3, 1 - (easedScroll * 0.7))
+            scale: 1 - (easedScroll * scaleAmount),
+            translateY: easedScroll * translateAmount,
+            blur: easedScroll * blurAmount,
+            opacity: Math.max(0.2, 1 - (easedScroll * opacityAmount)),
+            brightness: Math.max(0.5, 1 - (easedScroll * brightnessAmount))
           };
         } else {
           // Other sections - slide and scale in
           const distanceFromTop = rect.top;
           
-          if (distanceFromTop < windowHeight * 1.5 && distanceFromTop > -sectionHeight) {
-            const viewProgress = Math.max(0, Math.min(1, 
-              (windowHeight - distanceFromTop) / (windowHeight * 0.8)
-            ));
-            const easedView = easeInOutQuart(viewProgress);
-            
-            targetValues.current[index] = {
-              scale: 0.7 + (easedView * 0.3),
-              translateY: (1 - easedView) * 150,
-              opacity: Math.max(0, easedView),
-              rotateX: (1 - easedView) * 10,
-              blur: (1 - easedView) * 5
-            };
-          }
+          // Calculate visibility progress - works both directions
+          // When section is below viewport: progress = 0
+          // When section is in center: progress = 1
+          // When section is above viewport: progress decreases back to 0
+          
+          const sectionCenter = distanceFromTop + (sectionHeight / 2);
+          const viewportCenter = windowHeight / 2;
+          
+          // Distance from viewport center
+          const distanceFromCenter = Math.abs(sectionCenter - viewportCenter);
+          const maxDistance = windowHeight;
+          
+          // Progress is 1 when centered, 0 when far away
+          const centerProgress = Math.max(0, 1 - (distanceFromCenter / maxDistance));
+          
+          // Also calculate entry progress for initial animation
+          const entryProgress = Math.max(0, Math.min(1, 
+            (windowHeight - distanceFromTop) / (windowHeight * 0.6)
+          ));
+          
+          // Use the higher value between center and entry for smooth transitions
+          const viewProgress = Math.max(centerProgress, entryProgress * 0.8);
+          const easedView = easeInOutQuart(viewProgress);
+          
+          // Lighter effects for mobile
+          const scaleRange = isMobile ? 0.15 : 0.3;
+          const translateAmount = isMobile ? 60 : 150;
+          const rotateAmount = isMobile ? 3 : 10;
+          const blurAmount = isMobile ? 2 : 5;
+          
+          targetValues.current[index] = {
+            scale: (1 - scaleRange) + (easedView * scaleRange),
+            translateY: (1 - easedView) * translateAmount,
+            opacity: Math.max(0.3, easedView),
+            rotateX: (1 - easedView) * rotateAmount,
+            blur: (1 - easedView) * blurAmount
+          };
         }
       });
     };
@@ -119,8 +152,12 @@ const Portfolio = () => {
       rafRef.current = requestAnimationFrame(animate);
     };
 
-    // Scroll handler
+    // Scroll handler with resize check
     const handleScroll = () => {
+      calculateProgress();
+    };
+
+    const handleResize = () => {
       calculateProgress();
     };
 
@@ -130,11 +167,11 @@ const Portfolio = () => {
 
     // Event listeners
     window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', calculateProgress, { passive: true });
+    window.addEventListener('resize', handleResize, { passive: true });
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', calculateProgress);
+      window.removeEventListener('resize', handleResize);
       if (rafRef.current) {
         cancelAnimationFrame(rafRef.current);
       }
