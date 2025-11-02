@@ -106,6 +106,7 @@
 
 /* Content */
 .hero__content {
+  padding-top: 40px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -362,7 +363,9 @@
   width: 100%;
 }
 
-/* Scroll indicator */
+/* ==================== */
+/* ENHANCED SCROLL INDICATOR */
+/* ==================== */
 .hero__scroll {
   position: absolute;
   bottom: 3rem;
@@ -371,28 +374,188 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
   animation: fadeIn 1s ease 1.5s both;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 1rem;
+  transition: all 0.3s ease;
 }
 
+.hero__scroll:hover {
+  transform: translateX(-50%) scale(1.1);
+}
+
+.hero__scroll:active {
+  transform: translateX(-50%) scale(0.95);
+}
+
+/* Mouse/Circle Animation */
+.hero__scroll-circle {
+  width: 24px;
+  height: 36px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hero__scroll:hover .hero__scroll-circle {
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+.hero__scroll-wheel {
+  width: 4px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scrollWheel 2s ease infinite;
+}
+
+@keyframes scrollWheel {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(-50%) translateY(12px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(16px);
+  }
+}
+
+.hero__scroll:hover .hero__scroll-wheel {
+  background: rgba(255, 255, 255, 0.8);
+  animation-duration: 1.5s;
+}
+
+/* Line Animation */
 .hero__scroll-line {
   width: 1px;
-  height: 60px;
-  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  animation: scrollLine 2s ease infinite;
+  height: 40px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3), transparent);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-@keyframes scrollLine {
-  0%, 100% { transform: translateY(-10px); opacity: 0; }
-  50% { transform: translateY(10px); opacity: 1; }
+.hero__scroll-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, rgba(99, 102, 241, 0.8), transparent);
+  animation: scrollLinePulse 2s ease infinite;
 }
 
+@keyframes scrollLinePulse {
+  0%, 100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.hero__scroll:hover .hero__scroll-line {
+  height: 50px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5), transparent);
+}
+
+/* Text Animation */
 .hero__scroll-text {
   color: #666;
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   writing-mode: vertical-rl;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+}
+
+.hero__scroll:hover .hero__scroll-text {
+  color: #999;
+  opacity: 1;
+  letter-spacing: 0.3em;
+}
+
+/* Arrow Animation */
+.hero__scroll-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+  animation: bounceArrow 2s ease infinite;
+  transition: all 0.3s ease;
+}
+
+.hero__scroll-arrow svg {
+  stroke: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+  color: aliceblue;
+}
+
+.hero__scroll:hover .hero__scroll-arrow svg {
+  stroke: rgba(99, 102, 241, 0.8);
+}
+
+@keyframes bounceArrow {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 0.5;
+  }
+}
+
+.hero__scroll:hover .hero__scroll-arrow {
+  animation-duration: 1s;
+}
+
+/* Click Effect */
+.hero__scroll::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.1);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.hero__scroll:hover::before {
+  opacity: 1;
+  width: 80px;
+  height: 80px;
+}
+
+.hero__scroll:active::before {
+  width: 90px;
+  height: 90px;
+  background: rgba(99, 102, 241, 0.2);
 }
 
 /* Utility animations */

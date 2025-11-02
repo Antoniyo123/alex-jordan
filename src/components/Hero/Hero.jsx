@@ -23,6 +23,24 @@ const Hero = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  // Function to handle smooth scroll
+  const handleScrollDown = () => {
+    const nextSection = document.querySelector('.hero').nextElementSibling;
+    
+    if (nextSection) {
+      nextSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    } else {
+      // Fallback: scroll by viewport height
+      window.scrollBy({
+        top: window.innerHeight,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section className="hero">
       <div className="hero__noise"></div>
@@ -48,7 +66,7 @@ const Hero = () => {
       
       <div className={`hero__content ${isVisible ? 'visible' : ''}`}>
         <div className="hero__eyebrow-wrapper">
-          <span className="hero__eyebrow">Portfolio 2024</span>
+          <span className="hero__eyebrow">Portfolio 2025</span>
           <div className="hero__eyebrow-line"></div>
         </div>
         
@@ -108,11 +126,23 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="hero__scroll">
+        {/* Clickable Scroll indicator with animations */}
+        <button 
+          className="hero__scroll"
+          onClick={handleScrollDown}
+          aria-label="Scroll to next section"
+        >
+          <div className="hero__scroll-circle">
+            <div className="hero__scroll-wheel"></div>
+          </div>
           <div className="hero__scroll-line"></div>
           <span className="hero__scroll-text">Scroll</span>
-        </div>
+          <div className="hero__scroll-arrow">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M6 1v10M1 6l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+        </button>
       </div>
     </section>
   );

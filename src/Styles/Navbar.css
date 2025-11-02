@@ -1,129 +1,347 @@
+/* ==================== */
+/* NAVBAR BASE STYLES   */
+/* ==================== */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #0a0a0a;
+  cursor: pointer;
 
-    z-index: 1000;
-    border-bottom: 1px solid #e0d7f075;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid transparent;
+}
+
+.navbar.scrolled {
+  background: rgba(10, 10, 10, 0.95);
+  border-bottom: 1px solid rgba(224, 215, 240, 0.1);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+
+.navbar.visible {
+  transform: translateY(0);
+}
+
+/* ==================== */
+/* CONTAINER            */
+/* ==================== */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 90px;
+}
+
+/* ==================== */
+/* LOGO                 */
+/* ==================== */
+.logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-family: "Playfair Display", serif;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  z-index: 1100;
+}
+
+.logo-text {
+  position: relative;
+}
+
+.logo-text::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #e0d7f0, transparent);
+  transition: width 0.3s ease;
+}
+
+.logo:hover .logo-text::after {
+  width: 100%;
+}
+
+.logo-dot {
+  width: 6px;
+  height: 6px;
+  background: #e0d7f0;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.logo:hover .logo-dot {
+  transform: scale(1.5);
+  background: #fff;
+}
+
+/* ==================== */
+/* NAVIGATION MENU      */
+/* ==================== */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+}
+
+.nav-links {
+  display: flex;
+  gap: 50px;
+  align-items: center;
   
+}
+
+.nav-link {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.link-number {
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(224, 215, 240, 0.5);
+  transition: all 0.3s ease;
+}
+
+.link-text {
+  position: relative;
+}
+
+.link-text::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #e0d7f0;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #fff;
+}
+
+.nav-link:hover .link-number {
+  color: #e0d7f0;
+}
+
+.nav-link:hover .link-text::after {
+  width: 100%;
+}
+
+/* ==================== */
+/* HAMBURGER MENU       */
+/* ==================== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1100;
+  transition: all 0.3s ease;
+}
+
+.hamburger-line {
+  width: 28px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hamburger.active .hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.hamburger:hover .hamburger-line {
+  background: #e0d7f0;
+}
+
+/* ==================== */
+/* OVERLAY              */
+/* ==================== */
+.nav-overlay {
+  display: none;
+}
+
+/* ==================== */
+/* RESPONSIVE STYLES    */
+/* ==================== */
+@media (max-width: 968px) {
   .navbar-container {
-    
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    padding: 0 30px;
     height: 80px;
   }
-  
+
+  .nav-links {
+    gap: 40px;
+  }
+
+  .nav-link {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 20px;
+    height: 70px;
+  }
+
   .logo {
-    text-transform: uppercase;
-    text-decoration: none;
-    font-family: "Playfair Display", serif;
-    color: #fff;
-    font-size: 35px;
-    font-weight: 350;
+    font-size: 24px;
   }
-  .nav-menu {
-    display: none; /* Initially hidden */
-    flex-direction: column;
-    position: absolute;
-    top: 80px;
-    left: 0;
-    width: 100%;
-    background-color: #0a0a0a;
 
-    padding: 20px;
-    gap: 35px;
-    z-index: 1000;
-    color: black;
-  }
-  .nav-menu a{
-    color: rgb(249, 244, 244);
-    text-decoration: none;
-    line-height: 1.4;
-    font-size: 26px;
-    font-family: "Playfair Display", serif;
-
-  }
-  
-  .nav-menu.active {
-    display: flex; /* Show menu when active */
-  }
-  
+  /* Show hamburger */
   .hamburger {
     display: flex;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 1100;
   }
-  
-  .hamburger .bar {
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-    color: white;
-    width: 25px;
-    height: 2px;
-    background-color: rgb(244, 240, 240);
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .bar.change:first-child {
-    transform: rotate(-45deg) translate(-5px, 6px);
-  }
-  
-  .bar.change:last-child {
-    transform: rotate(45deg) translate(-5px, -6px);
-  }
-  
-  @media (min-width: 768px) {
-    .nav-menu {
-      display: none; /* Default state for larger screens */
-    }
-  }
-  
-  
-  
-  .bar {
-    width: 25px;
-    height: 2px;
-    /* background-color: black; */
-    transition: 0.3s;
-  }
-  
-  @media (max-width: 768px) {
-    .nav-menu {
-      display: none;
-    }
-  
-    .nav-menu.active {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 80px;
-      left: 0;
-      width: 100%;
-      background-color: #0a0a0a;
 
-      padding: 20px;
-      gap: 20px;
+  /* Hide desktop menu, show mobile menu */
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: min(400px, 100%);
+    height: calc(100vh - 70px);
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 1px solid rgba(224, 215, 240, 0.1);
+    overflow-y: auto;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0;
+    padding: 60px 40px;
+    align-items: flex-start;
+  }
+
+  .nav-link {
+    font-size: 32px;
+    padding: 20px 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(224, 215, 240, 0.05);
+  }
+
+  .link-number {
+    font-size: 14px;
+  }
+
+  .link-text::after {
+    bottom: -5px;
+  }
+
+  /* Mobile overlay */
+  .nav-overlay {
+    display: block;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    z-index: 999;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
     }
-  
-    .hamburger {
-      display: flex;
-    }
-  
-    .bar.change:first-child {
-      transform: rotate(-45deg) translate(-5px, 6px);
-    }
-  
-    .bar.change:last-child {
-      transform: rotate(45deg) translate(-5px, -6px);
+    to {
+      opacity: 1;
     }
   }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 16px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .nav-menu {
+    width: 100%;
+  }
+
+  .nav-links {
+    padding: 40px 24px;
+  }
+
+  .nav-link {
+    font-size: 28px;
+    padding: 16px 0;
+  }
+
+  .link-number {
+    font-size: 12px;
+  }
+}
+
+/* ==================== */
+/* SCROLL ANIMATIONS    */
+/* ==================== */
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .nav-menu,
+  .nav-link,
+  .hamburger-line,
+  .logo {
+    transition: none;
+  }
+}
