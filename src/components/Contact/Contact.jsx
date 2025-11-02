@@ -10,8 +10,8 @@ const Contact = () => {
         <p className="contact-description">
           I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
         </p>
-        <a href="mailto:riswantonr2015@gmail.com" className="email-link">
-          riswantonr2015@gmail.com
+        <a href="mailto:alexjor1997@gmail.com" className="email-link">
+          alexjor1997@gmail.com
         </a>
         <div className="social-links">
           {['LinkedIn', 'GitHub', 'Dribbble'].map((platform) => (
