@@ -11,9 +11,9 @@ const AboutMe = () => {
   const servicesRef = useRef(null);
 
   const experience = [
-    { number: "50+", label: "Projects", description: "Successfully delivered across various industries" },
-    { number: "30+", label: "Clients", description: "Trusted partners worldwide" },
-    { number: "3", label: "Awards", description: "For exceptional design & innovation" }
+    { number: "20+", label: "Projects", description: "Successfully delivered across various industries" },
+    { number: "20+", label: "Clients", description: "Trusted partners worldwide" },
+    // { number: "3", label: "Awards", description: "For exceptional design & innovation" }
   ];
 
   const services = [
