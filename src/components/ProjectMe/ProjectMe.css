@@ -669,8 +669,11 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
-  }
 
+  }
+.project-me__header h2 {
+    font-size: 1.8rem;
+  }
   .project-me__header-content {
     width: 100%;
   }

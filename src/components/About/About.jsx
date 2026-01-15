@@ -104,7 +104,7 @@ const About = () => {
           <div className="about__image-container">
             <div className="about__image-wrapper">
               <div className="about__image-border"></div>
-              <img src={require('../../img/selfie.jpeg')} alt="Alex Jordan" />
+              <img src={require('../../img/profil.jpg')} alt="Alex Jordan" />
               <div className="about__image-overlay"></div>
             </div>
           </div>
