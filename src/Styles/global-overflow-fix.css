@@ -1,0 +1,183 @@
+/* ========================================= */
+/* GLOBAL OVERFLOW FIX FOR SMOOTH SCROLLING */
+/* ========================================= */
+
+/* Import this CSS file in your main App.js or index.js */
+/* Example: import './global-overflow-fix.css'; */
+
+/* Remove overflow hidden from all major sections */
+.hero,
+.about,
+.about-me,
+.projects,
+.project-me,
+.projectme-section,
+.contact,
+.contactme-section,
+.contact__me__wrapper {
+  overflow: visible !important;
+  min-height: auto !important;
+}
+
+/* Ensure containers don't restrict content */
+.hero__content,
+.about__container,
+.about-me__container,
+.projects__container,
+.project-me__container,
+.contactme-content {
+  overflow: visible !important;
+  max-width: 100% !important;
+}
+
+/* Allow project grids to flow naturally */
+.projects__grid,
+.project-me__grid {
+  overflow: visible !important;
+}
+
+/* Fix for any section with min-height 100vh that conflicts with snap */
+section[class*="section"] {
+  min-height: auto !important;
+}
+
+/* Ensure modal overlays work properly */
+.project-modal,
+.modal {
+  position: fixed !important;
+  z-index: 9999 !important;
+}
+
+/* Allow floating elements and decorative items to overflow */
+.hero__floating-elements,
+.about__floating-elements,
+.about-me__floating-elements,
+.projects__floating-elements,
+.project-me__floating-elements,
+.contactme__floating-elements,
+.hero__gradient,
+.about__gradient,
+.projects__gradient,
+.contactme__gradient {
+  overflow: visible !important;
+  pointer-events: none !important;
+}
+
+/* Ensure noise overlays don't interfere */
+.hero__noise,
+.about__noise,
+.about-me__noise,
+.projects__noise,
+.project-me__noise,
+.contactme__noise {
+  pointer-events: none !important;
+}
+
+/* Fix for contact section specifically */
+.contactme-section {
+  min-height: auto !important;
+  height: auto !important;
+}
+
+/* Fix wrapper heights */
+.contact__me__wrapper {
+  min-height: auto !important;
+  height: auto !important;
+}
+
+/* Ensure all child divs don't have overflow issues */
+div[class*="__container"],
+div[class*="__content"],
+div[class*="__wrapper"] {
+  overflow: visible !important;
+}
+
+/* Allow content to breathe */
+.portfolio-section > div > * {
+  overflow: visible !important;
+}
+
+/* ========================================= */
+/* SPECIFIC COMPONENT HEIGHT FIXES          */
+/* ========================================= */
+
+/* Hero - let it be natural height */
+.hero {
+  padding: 4rem 2rem !important;
+  min-height: auto !important;
+  height: auto !important;
+}
+
+/* About sections - remove forced heights */
+.about,
+.about-me {
+  padding: 6rem 2rem !important;
+  min-height: auto !important;
+  height: auto !important;
+}
+
+/* Projects - allow grid to determine height */
+.projects,
+.project-me {
+  padding: 6rem 2rem !important;
+  min-height: auto !important;
+  height: auto !important;
+}
+
+/* Contact - let form determine height */
+.contactme-section {
+  padding: 4rem 2rem !important;
+}
+
+/* ========================================= */
+/* ENSURE SMOOTH SCROLL COMPATIBILITY       */
+/* ========================================= */
+
+/* Remove any transform that might interfere with snap */
+.hero,
+.about,
+.about-me,
+.projects,
+.project-me,
+.contactme-section {
+  transform: none !important;
+  will-change: auto !important;
+}
+
+/* Ensure all animations don't interfere with scroll snap */
+@media (min-width: 769px) {
+  .hero,
+  .about,
+  .about-me,
+  .projects,
+  .project-me,
+  .contactme-section {
+    transition: opacity 0.3s ease !important;
+  }
+}
+
+/* ========================================= */
+/* MOBILE SPECIFIC FIXES                    */
+/* ========================================= */
+
+@media (max-width: 768px) {
+  /* On mobile, allow natural flow */
+  .hero,
+  .about,
+  .about-me,
+  .projects,
+  .project-me,
+  .contactme-section {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 4rem 1.5rem !important;
+  }
+  
+  /* Reduce section padding on mobile */
+  .about,
+  .about-me,
+  .projects,
+  .project-me {
+    padding: 3rem 1.5rem !important;
+  }
+}

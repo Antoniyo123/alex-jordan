@@ -283,7 +283,7 @@
 
   /* Mobile overlay */
   .nav-overlay {
-    display: block;
+    /* display: block; */
     position: fixed;
     top: 70px;
     left: 0;

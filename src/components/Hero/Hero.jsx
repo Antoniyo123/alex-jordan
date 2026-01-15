@@ -137,7 +137,7 @@ const Hero = () => {
       
       <div className={`hero__content ${isVisible ? 'visible' : ''}`}>
         <div className="hero__eyebrow-wrapper">
-          <span className="hero__eyebrow">Portfolio 2025</span>
+          <span className="hero__eyebrow">Portfolio 2026</span>
           <div className="hero__eyebrow-line"></div>
         </div>
         

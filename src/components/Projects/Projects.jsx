@@ -15,7 +15,7 @@ const Projects = () => {
       year: "2022",
       category: "Web Development",
       description: "A concise description of the first project showcasing its key features and innovative approach.",
-      image: require('../../img/project1.png'),
+      image: require('../../img/kacaloader.png'),
       tags: ["React", "Node.js", "MongoDB"]
     },
     {
@@ -23,7 +23,7 @@ const Projects = () => {
       year: "2022",
       category: "Web Development",
       description: "Brief insight into the second project, highlighting its unique design and creative solution.",
-      image: require('../../img/project2.png'),
+      image: require('../../img/indobiz1.png'),
       tags: ["React", "Firebase", "TypeScript"]
     }
   ];
